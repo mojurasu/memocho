@@ -5,7 +5,8 @@ module.exports = () => {
 
   mongoose.connect(connectionString, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
   });
 
   const models = require("../model")(mongoose);

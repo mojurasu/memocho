@@ -1,10 +1,10 @@
 const render = require('../render');
 
 module.exports = (req, res) => {
-    const {models, mongoose} = req;
-    const id = req.params.id;
+    const {models} = req;
+    const hash = req.params.hash;
     const contentType = req.query.ctype || "text/plain";
-    return models.snippets.findOne({_id: mongoose.Types.ObjectId(id)})
+    return models.snippets.findOne({hash})
         .then(doc => {
             if (!doc) {
                 res.status(404);

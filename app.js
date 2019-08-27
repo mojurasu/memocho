@@ -26,8 +26,8 @@ app.use(render());
 app.post('/fork', fork);
 app.post('/', createSnippet);
 
-app.get('/~:id', getSnippet);
-app.get('/~:id/raw', getSnippetRaw);
+app.get('/:hash', getSnippet);
+app.get('/:hash/raw', getSnippetRaw);
 app.get('/', home);
 
 

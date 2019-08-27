@@ -2,10 +2,10 @@ const render = require('../render');
 
 module.exports = (req, res) => {
 
-    const {models, mongoose} = req;
-    const [id, language] = (req.params.id || '').split('.');
+    const {models} = req;
+    const [hash, language] = (req.params.hash || '').split('.');
     const rawMode = Boolean(req.query.raw);
-    return models.snippets.findOne({_id: mongoose.Types.ObjectId(id)})
+    return models.snippets.findOne({hash})
         .then(doc => {
             if (!doc) {
                 res.status(404);

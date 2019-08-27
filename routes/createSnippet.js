@@ -4,7 +4,7 @@ module.exports = (req, res) => {
     if (!content) return res.redirect('/');
     req.models.snippets.create({content})
         .then(doc => {
-            res.redirect(`/~${doc._id}`);
+            res.redirect(`/${doc.hash}`);
         });
 
 };
