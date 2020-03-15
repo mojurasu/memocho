@@ -9,6 +9,7 @@ const app = express();
 
 const home = require('./routes/home');
 const getSnippet = require('./routes/getSnippet');
+const getSnippetRaw = require('./routes/getSnippetRaw');
 const createSnippet = require('./routes/createSnippet');
 const fork = require('./routes/fork');
 
@@ -26,6 +27,7 @@ app.post('/fork', fork);
 app.post('/', createSnippet);
 
 app.get('/~:id', getSnippet);
+app.get('/~:id/raw', getSnippetRaw);
 app.get('/', home);
 
 
