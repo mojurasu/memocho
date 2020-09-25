@@ -53,13 +53,13 @@ code, #snippet {
 .textarea {
     display: block;
     outline: 0px solid transparent;
-    background: #000;
+    background: #011627;
     height: 100%;
     width: 100%;
     padding: 3em;
     overflow-x: auto;
     overflow-y: auto;
-    color: #EEE;
+    color: #d6deeb;
     border: none;
     resize: none;
     -moz-tab-size: 4;
