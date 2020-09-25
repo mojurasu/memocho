@@ -16,8 +16,8 @@ const fork = require('./routes/fork');
 app.use(helmet());
 app.use(express.static(__dirname + '/public'));
 app.use('/custom', express.static(__dirname + '/custom'));
-app.use(express.urlencoded({extended: true})); // parse formdata
-app.use(express.json()); // parse JSON requests
+app.use(express.urlencoded({limit: '2mb', extended: true})); // parse formdata
+app.use(express.json({limit: '2mb'})); // parse JSON requests
 app.use(rawBody());
 
 app.use(mongoose());
