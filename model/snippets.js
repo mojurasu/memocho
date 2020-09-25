@@ -10,6 +10,14 @@ module.exports = (mongoose) => {
             type: String,
             required: true,
         },
+        expireAt: {
+            type: Date,
+            default: Date.now,
+            index: { expires: '7d' },
+        },
+    },
+    {
+        timestamps: true
     });
 
     snippetsSchema.pre("save", async function (next) {
