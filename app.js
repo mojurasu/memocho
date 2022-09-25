@@ -30,4 +30,4 @@ app.get('/', home);
 
 
 const PORT = process.env.BIN_PORT || 1998;
-app.listen(PORT, () => console.log('Listening on port', PORT));
+app.listen(PORT, '127.0.0.1', () => console.log('Listening on port', PORT));
