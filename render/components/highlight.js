@@ -9,7 +9,7 @@ module.exports = (m, {content = '', language}) => {
                 .split('\n')
                 .map((line, index) => m('tr',{'id': `L${index}`, 'class': 'code-row'}, [
                     m('td.line-number',
-                        {'data-line-number': index}),
+                        {'data-line-number': index + 1}),
                     m('td', m.trust(`<code class="loc">${line}</code>`)),
                 ]))
         ),
