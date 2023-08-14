@@ -7,7 +7,7 @@ module.exports = (m, {content = '', language}) => {
                 .highlightAuto(((content || "") + "\n"), language)
                 .value
                 .split('\n')
-                .map((line, index) => m('tr',{'id': `L${index}`, 'class': 'code-row'}, [
+                .map((line, index) => m('tr',{'id': `L${index + 1}`, 'class': 'code-row'}, [
                     m('td.line-number',
                         {'data-line-number': index + 1}),
                     m('td', m.trust(`<code class="loc">${line}</code>`)),
