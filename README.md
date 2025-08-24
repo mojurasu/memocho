@@ -36,6 +36,13 @@ Then run it as you would any other image:
 docker run mojurasu/memocho:latest
 ```
 
+### Docker Compose
+The compose file uses the .env file for the build arguments so it can be built like this:
+```shell
+docker compose --env-file .env up --build -d
+```
+You'll need to set the mongodb string to the IP of the container, you can get this from `docker network inspect mongodb`
+
 ## Customising `Memochō`
 
 To customise your self-hosted version of `Memochō`, you can add these two files to `/custom` at the root directory:
