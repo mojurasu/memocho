@@ -1,0 +1,40 @@
+services:
+  memocho:
+    build:
+      context: .
+      args:
+        PORT: "${BIN_PORT}"
+        MONGO_CSTRING: "${BIN_MONGO_CSTRING}"
+    depends_on:
+      mongodb:
+        condition: service_started
+        restart: true
+    container_name: memocho
+    restart: unless-stopped
+    networks:
+      - proxy
+      - mongodb
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.memocho.rule=Host(`bin.example.com`)"
+
+
+  mongodb:
+    restart: unless-stopped
+    image: mongo
+    container_name: memocho-mongodb
+    networks:
+      - mongodb
+
+    volumes:
+      # Change this
+      - /data/db:/data/db
+
+networks:
+  mongodb:
+    name: mongodb
+  proxy:
+    external: true
+
